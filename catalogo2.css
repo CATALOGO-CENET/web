@@ -1,0 +1,856 @@
+:root{
+    --azul: #88CFE0;
+    --rojo: #db473C;
+    --gris: #949699; 
+}
+/* Atrbutos para la pagina */
+
+@font-face {
+    font-family: 'PlutoRegular';
+    src: url('fuentes/PlutoRegular.woff') format('woff'),
+         url('fuentes/PlutoRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+*{
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PlutoRegular', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100vw;
+    height: auto;
+    
+    
+}
+
+
+
+body::-webkit-scrollbar {
+    width: 10px; 
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: var(--azul);
+    border-radius: 20px; 
+}
+  
+  
+
+/* Atrbutos para la barra de navegacion */
+.navegacion {
+    display: flex;
+    flex-direction: column; /* Mantiene los elementos en columna */
+    align-items: flex-start; /* Alinea todos los elementos a la izquierda */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 100%;
+    height: 11vh; /* Reduce la altura de la barra de navegación */
+    padding: 5px 20px; /* Reduce el relleno interno */
+    background-color: var(--azul);
+    border-bottom: 3px solid var(--rojo);
+    box-sizing: border-box;
+    gap: 10px; /* Espaciado más pequeño entre elementos */
+}
+
+
+/* Configuracion de los enlaces del menu */
+
+
+
+.inicio{
+    margin-top: 10px;
+}
+
+.inicio,.categoria,.contacto{
+    height: 10vh;
+    background-color: #ffffff;
+    border-bottom: rgb(199,199,199) 1px solid;
+}
+
+.contacto{
+    border-bottom: none;
+}
+
+
+.inicio ion-icon,.categoria ion-icon,.contacto ion-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:var(--azul);
+    flex-basis: 30%;
+    padding: 5px;
+    filter: drop-shadow(1px 1px 1px var(--azul));
+}
+
+
+.opciones a,.categoria p{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-basis: 80%;
+    width: 70%;
+    padding: 5px;
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--gris);
+    cursor: pointer;
+    text-shadow: 1px 1px 1px var(--gris);
+}
+
+
+
+
+/* Propiedades para el catalogo (boton)*/
+
+
+.catalogo {
+    margin-top: 20px; /* o la cantidad que quieras */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2.0rem;
+    color: ghostwhite;
+    text-shadow: 1px 1px 1px black;
+    gap: 10px;
+}
+
+.catalogo ion-icon {
+    filter: drop-shadow(1px 1px 1px black);
+    font-size: 2rem; /* Ajusta el tamaño del ícono */
+}
+/* Propiedades de la lista de las diferentes categorias */
+.catalogo_list{
+    z-index: 1;
+    width: 90%;
+    height: 450px;
+    padding: 5px;
+    gap: 5px;
+    top: 15vh;
+    right: 0;
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap row;
+    background-color: ghostwhite;
+    border-top: solid 5px var(--azul);
+    border-radius: 5px;
+    box-shadow: 0 3px 2px rgb(63, 62, 62);
+}
+
+
+.item{
+    user-select: none;
+    -webkit-user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-basis: 30%;
+    height: 11%;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: var(--azul);
+    transition: all 0.5s;
+    font-weight: 500;
+    font-size: 15.5px;
+    
+}
+
+.to,.indu,.comer,.ense,.actalo,.Agri,.Tecnica,.Seguro,.inmobiliaria,.otrasactividades,.hogar,.Salud{
+    box-shadow: 0 2px 1px var(--rojo);
+}
+
+.item:hover{
+    cursor: pointer;
+    background-color: ghostwhite;
+    box-shadow: 0 0 5px 2.5px var(--azul);
+    color: black;
+}
+
+
+/* Propiedades del los textos */
+
+.texto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    text-shadow: 1px 1px 1px black;
+    color: var(--azul);
+    gap: 15px;
+}
+
+.texto h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 100%;
+    font-size: 50px;
+}
+
+.texto p{
+    font-size: 30px;
+}
+
+
+.titulocat{
+    font-size: 48px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: var(--azul);
+    border-bottom: 3px solid var(--rojo);
+        border-top: 3px solid var(--rojo);
+
+    text-shadow: 1px 1px 1px black;
+}
+
+/* Propiedades de el contenedor que muestra las imagenes de los emprendedores */
+.empresas{
+    margin: auto;
+    width: 100%;
+    height: 100;
+    border-bottom: 3px solid var(--azul);
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    flex-flow: row wrap;
+    padding: 10px;
+    padding-bottom: 30px;
+    gap: 25px;
+}
+
+.emp{
+    flex-basis: 23%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    height: auto;
+    box-shadow: 0 0 5px 0.5px var(--gris);
+    transition: all 0.5s;
+}
+
+.emp:hover{
+    transform: translateY(-3%);
+}
+
+.emp img {
+  width: 100%;
+  height: 100%; /* o 100%, según el contexto */
+  object-fit: contain;
+}
+
+
+.BN img ,.CAP img ,.TY img{
+    object-fit: contain;
+}
+
+.emp a{
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+    height: 50PX;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--azul);
+    font-weight: bold;
+    color:black;
+    font-size: 18px;
+    
+}
+
+/* Propiedades para el footer */
+.baner{
+	width: 100%;
+    height: auto;
+	top: 0;
+	left: 0;
+    margin: 15px;
+	padding: 0px;
+	background: #ffffff;
+}
+
+.footer {
+	position: relative;
+	width: 100%;
+	background: var(--azul);
+	min-height: 100px;
+	padding: 20px 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+  }
+
+  .footer a{
+    font-size: 30px;
+  }
+  
+  .social-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	margin: 10px 5px;
+	flex-wrap: wrap;
+  }
+  
+  .icon-elem {
+	list-style: none;
+  }
+  
+  .icon {
+	color: white;
+	font-size: 32px;
+	display: inline-block;
+	margin: 0 10px;
+	transition: 0.5s;
+
+  }
+  
+  .icon:hover {
+	transform: translateY(-10px);
+    filter: drop-shadow(0 0 3px black);
+  }
+  
+  
+  
+  .text {
+    color: white;
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 10px;
+	font-size: 22px;
+    text-shadow: 1px 1px 1px black;
+  }
+  
+.fondo{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 110%;
+}
+.puerta1,.puerta2{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: white;
+}
+
+.puerta2{
+    right: 0;
+}
+
+.logo{
+    width: auto;
+    height: auto;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-65%);
+    overflow: hidden;
+    animation: flotar 1.5s infinite ;
+    transition: all 1.5s;
+    
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+
+.llenado{
+    width: 35%;
+    height: 3%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 60%;
+    left: 50%;
+    transition: all 1.5s;
+}
+
+.porcentaje{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 100%;
+    background: var(--azul);
+    border-radius: 50px;
+    transition: all 0.2s;
+    border: solid 1px var(--gris);
+    box-shadow: 0 0 7px 5px var(--azul), 0 5px 20px black;
+    
+    z-index: 99;
+}
+
+
+@keyframes desplegar{
+    0%{
+        opacity: 0;
+        transform: translateX(3%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(-9%);
+    }
+}
+
+@keyframes ocultar{
+    0%{
+        opacity: 1;
+        transform: translateX(-9%);
+    }
+    100%{
+        opacity: 0;
+        transform: translateX(3%);
+    }
+}
+
+@keyframes pt1{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes pt2{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+
+@keyframes flotar{
+    0%{
+        transform: translate(-50%,-65%) ;
+    }
+
+    50%{
+        transform: translate(-50%,-50%) ;
+    }
+
+    100%{
+        transform: translate(-50%,-65%) ;
+    }
+}
+
+/* reponsive en tablets */
+
+@media only screen and (max-width: 760px) {
+
+    .llenado{
+        width: 45%;
+        height: 3%;
+        top: 65%;
+    }
+
+   
+
+    .item{
+        font-size: 13.5px;
+    }
+
+    .menu{
+        width: 1%;
+        font-size: 25px;
+    }
+    
+    .opciones a,.categoria p{
+        font-size: 17px;
+    }
+
+    .texto h1{
+        font-size: 30px;
+    }
+
+    .texto p{
+        font-size: 19px;
+    }
+
+    .titulocat{
+        font-size: 43px;
+    }
+
+    .emp{
+        flex-basis: 28%;
+        height: 260px;
+    }
+
+    .emp a{
+        font-size: 15px;
+    }
+
+    .baner img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+
+}
+
+@media only screen and (max-width: 436px) {
+
+    body{
+        overflow-x: hidden;
+    }
+
+    .llenado{
+        width: 80%;
+        height: 3%;
+        top: 55%;
+    }
+
+    .catalogo *{
+        font-size: 25px;
+    }
+
+   
+    .catalogo_list{
+        width: 90.5%;
+        height: auto;
+    }
+
+    .item{
+        flex-basis: 40%;
+        font-size: 10.5px;
+        height: 38px;
+    }
+
+    .menu{
+        width: 20%;
+        font-size: 20px;
+    }
+
+    .opciones a,.categoria p{
+        font-size: 15px;
+    }
+    
+    .texto h1{
+        font-size: 18px;
+    }
+
+    .texto p{
+        font-size: 14px;
+    }
+
+    .titulocat{
+        font-size: 30px;
+    }
+
+    .emp{
+        flex-basis: 40%;
+        height: auto;
+    }
+
+    .emp a{
+        font-size: 13.5px;
+    }
+
+    .footer a{
+        font-size: 25px;
+    }
+}
+/* Contenedor de botones centrado */
+.boton-categoria-contenedor{
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Estilo para ambos botones */
+.boton-categoria, .boton-scroll, .inicio, .contacto{
+    width: 400px;
+    height: 70px;
+    padding: 24px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 20px;
+    background-color: white; /* Azul estilo CENET */
+    color: black;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+      position: relative;
+}
+
+/* Iconos dentro del botón */
+.boton-categoria ion-icon, .boton-scroll ion-icon{
+    font-size: 28px;
+}
+
+/* Efecto hover */
+.boton-categoria:hover, .boton-scroll:hover, .inicio, .contacto{
+    background-color: #051e45;
+    transform: scale(1.05);
+}
+
+.contenedor-carrucel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    width: 100vw;
+    overflow: hidden; /* Asegura que no haya scroll */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.carrucel video {
+    width: 1400px; /* Ancho más grande */
+    height: 600px; /* Altura más grande */
+    object-fit: auto; /* Asegura que se ajuste bien al espacio */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+
+
+
+
+
+.barra-superior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+      padding: 1px 16px;
+  flex-wrap: wrap;
+  border-bottom: 3px solid var(--rojo);
+}
+
+.botones-superiores, .inicio, .contacto {
+  display: flex;
+  gap: 20px;
+}
+
+.botones-superiores button , .inicio, .contacto{
+  background-color:white; /* Azul estilo CENET */
+  color: black;
+  border: none;
+  padding: 1px 6px;
+  font-size: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.botones-superiores button:hover{
+  background-color:var(--azul);
+  color: white;
+  transform: translateY(-2px);
+}
+
+
+.inicio:hover, .contacto:hover{
+  background-color:var(--azul);
+  color: white;
+  transform: translateY(-2px);
+}
+.menu-superior {
+  font-size: 1px;
+  color: white;
+  cursor: pointer;
+}
+.QUIETO{
+  position: sticky;
+  top: 0; /* distancia desde el borde superior */
+    z-index: 1;
+}
+.barra-superior{
+  position: sticky;
+  top: 105px; /* distancia desde el borde superior */
+    z-index: 1;
+  background-color: white; /* importante para cubrir contenido detrás */
+}
+
+.boton-categoria,
+.boton-scroll,
+.inicio,
+.contacto {
+    width: 400px;
+    height: 40px;
+    padding: 24px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold; /* NEGRITA */
+    border-radius: 20px;
+    background-color: white;
+    color: black; /* TEXTO NEGRO */
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    font-family: 'PlutoRegular', sans-serif; /* o tu fuente personalizada */
+}
+
+/* Íconos en negro normalmente */
+.boton-categoria ion-icon,
+.boton-scroll ion-icon,
+.inicio ion-icon,
+.contacto ion-icon {
+    color: black;
+    transition: color 0.3s ease;
+}
+
+/* Hover: fondo azul y todo blanco */
+.boton-categoria:hover,
+.boton-scroll:hover,
+.inicio:hover,
+.contacto:hover {
+    background-color: var(--azul); /* o #88CFE0 directamente */
+    color: white;
+}
+
+.boton-categoria:hover ion-icon,
+.boton-scroll:hover ion-icon,
+.inicio:hover ion-icon,
+.contacto:hover ion-icon {
+    color: white;
+}
+
+
+
+#busqueda:focus {
+  border-color: var(--rojo);
+}
+
+
+#subtitulo-categoria {
+    margin-left: 49PX; /* Alinea el subtítulo con el texto */
+    color: ghostwhite;
+    font-weight: normal;
+    text-shadow: 1px 1px 1px black;
+    font-size: 1rem; /* Ajuste proporcional */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+
+.contenedor-busqueda {
+    position: relative; /* Referen  cia para el posicionamiento absoluto */
+    width: 100%;
+    text-align: center;
+    margin-top: 0; /* Elimina el margen superior adicional */
+    
+}
+
+#busqueda {
+    position: absolute;
+    top: -6vw; /* Mueve el campo de búsqueda más arriba */
+    left: 82%; /* Mantiene su alineación horizontal */
+    transform: translate(-50%, -50%);
+    width: 24svw;
+    height: 6vh;
+    padding: 4vs 9vh;
+    font-size: 18px;
+    border-radius: 15px;
+    border: 2px solid var(--gris);
+    outline: none;
+    transition: border 0.3s ease;
+    text-align: center;
+    
+}
+
+
+.logo-franja {
+    position: absolute; /* Mantiene la imagen en posición absoluta */
+    top: 10px; /* Mueve la imagen más arriba */
+    right: 30px; /* Mantiene la distancia desde la derecha */
+    z-index: 10; /* Asegura que esté sobre otros elementos */
+}
+
+.logo-franja img {
+    width: 66px; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina cualquier espacio no deseado */
+}
+
+
+
+
+
+/* Tablet */
+@media (max-width: 1024px) {
+.catalogo {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+
+/* Celular */
+@media (max-width: 600px) {
+.catalogo {
+grid-template-columns: 1fr;
+}
+}
+
+
+
+/* Tablet */
+@media (max-width: 1024px) {
+.catalogo {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+
+/* Celular */
+@media (max-width: 600px) {
+.catalogo {
+grid-template-columns: 1fr;
+}
+}
+
+.ancla-fija {
+    display: block;
+    height: 250px;
+    margin-top: -307px;
+    visibility: hidden;
+}
