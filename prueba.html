@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Contador de visitas simple</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+  #contador { font-size: 24px; color: #333; }
+</style>
+</head>
+<body>
+
+<h1>Mi sitio web</h1>
+<div id="contador">Cargando visitas...</div>
+
+<script>
+  // Aquí va el ID único para tu sitio, cámbialo por algo tuyo
+  const sitioID = "catalogo-cenet-oficial";
+
+  // Función para actualizar el contador
+  function actualizarContador() {
+    fetch(https://api.countapi.xyz/hit/${sitioID}/visitas)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("contador").textContent = 
+          Este `sitio ha sido visitado ${data.value} veces.`;
+      })
+      .catch(() => {
+        document.getElementById("contador").textContent = 
+          "No se pudo cargar el contador de visitas.";
+      });
+  }
+
+  actualizarContador();
+</script>
+
+</body>
+</html>
